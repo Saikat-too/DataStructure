@@ -83,24 +83,3 @@ Upper Bound for Sorted Arrays
 int up_index = upper_bound(arr1 , value)
 ```
 
-```
-
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
