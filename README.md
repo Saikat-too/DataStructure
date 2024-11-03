@@ -81,7 +81,9 @@ int lb_index = lower_bound(arr1 , value)
 Upper Bound for Sorted Arrays 
 ```
 int up_index = upper_bound(arr1 , value)
+```
 
+```
 
 ```
 ```
