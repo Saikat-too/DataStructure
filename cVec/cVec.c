@@ -4,6 +4,7 @@
 
 cVector *cVec(size_t initial_capacity) {
 
+  // Creating a vector
   cVector *arr = (cVector *)malloc(sizeof(cVector));
   if (!arr)
     return NULL;
@@ -20,6 +21,7 @@ cVector *cVec(size_t initial_capacity) {
   return arr;
 }
 
+// Creating a vector with an initial value
 cVector *cVec_val(size_t initial_capacity, int initial_value) {
   cVector *arr = cVec(initial_capacity);
 
@@ -32,6 +34,7 @@ cVector *cVec_val(size_t initial_capacity, int initial_value) {
   return arr;
 }
 
+// Push elements in the vector
 void cVec_push(cVector *arr, int value) {
   if (arr->size >= arr->capacity) {
     printf("The size has been exceeded");
@@ -43,10 +46,14 @@ void cVec_push(cVector *arr, int value) {
   return;
 }
 
+// Clear the vector
+
 void cVec_free(cVector *arr) {
   free(arr->data);
   arr->size = 0;
 }
+
+// Deleting last element of vector
 
 void cVec_pop(cVector *arr) {
   if (arr->size == 0) {
@@ -57,7 +64,8 @@ void cVec_pop(cVector *arr) {
   arr->size = arr->size - 1;
 }
 
-int cVec_cur(cVector *arr, size_t index) {
+// Element of an index of the vector
+int cVec_get(cVector *arr, size_t index) {
   if (arr->size <= index) {
     printf("The index is higher than size of the array ");
     return CVEC_OUT_OF_BOUNDS;
@@ -66,4 +74,48 @@ int cVec_cur(cVector *arr, size_t index) {
   return arr->data[index];
 }
 
+// Size of the vector
 int cVec_size(cVector *arr) { return arr->size; }
+
+// Sorting the elements
+
+// swap function
+void swap(int *a, int *b) {
+  int tmp = *a;
+  *a = *b;
+  *b = tmp;
+}
+
+// Partition for quick sort
+int partition(cVector *arr, int low, int high, bool ascending) {
+  int pivot = arr->data[high];
+  int i = low - 1;
+  for (int j = low; j < high; j++) {
+    if ((ascending && arr->data[j] < pivot) ||
+        (!ascending && arr->data[j] > pivot)) {
+      i++;
+      swap(&arr->data[i], &arr->data[j]);
+    }
+  }
+  swap(&arr->data[i + 1], &arr->data[high]);
+
+  return i + 1;
+}
+
+// Quick Sort
+
+void quicksort(cVector *arr, int low, int high, bool ascending) {
+  if (low < high) {
+    int element = partition(arr, low, high, ascending);
+    quicksort(arr, low, element - 1, ascending);
+    quicksort(arr, element + 1, high, ascending);
+  }
+}
+
+// Vector sorting
+
+void cVec_sort(cVector *arr, bool ascending) {
+  int low = 0;
+  int high = arr->size - 1;
+  quicksort(arr, low, high, ascending);
+}

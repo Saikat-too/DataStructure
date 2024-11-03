@@ -10,14 +10,17 @@ int main(int argc, char *argv[]) {
   printf("Thi size of the array1 is %d \n", cVec_size(arr1));
   printf("The size of the array2 is %d \n", cVec_size(arr2));
 
-  printf("The elements of array1 is  \n");
+  printf("The elements of array1 are : ");
   for (int i = 0; i < cVec_size(arr1); i++) {
-    printf("%d\n", cVec_cur(arr1, i));
+    printf("%d ", cVec_get(arr1, i));
   }
-  printf("The elements of array2 is \n");
+  printf("\n");
+  printf("The elements of array2 are : ");
   for (int i = 0; i < cVec_size(arr2); i++) {
-    printf("%d\n", cVec_cur(arr2, i));
+    printf("%d ", cVec_get(arr2, i));
   }
+
+  printf("\n");
 
   cVec_pop(arr1);
   cVec_pop(arr2);
@@ -25,8 +28,8 @@ int main(int argc, char *argv[]) {
   printf("The size of array1 is %d \n", cVec_size(arr1));
   printf("The size of array2 is %d \n", cVec_size(arr2));
 
-  printf("The last element is %d \n", cVec_cur(arr1, 2));
-  printf("The last element is %d \n", cVec_cur(arr2, 9));
+  printf("The last element is %d \n", cVec_get(arr1, 2));
+  printf("The last element is %d \n", cVec_get(arr2, 9));
 
   cVec_free(arr1);
   cVec_free(arr2);
@@ -34,7 +37,28 @@ int main(int argc, char *argv[]) {
   printf("The size after freeing is %d\n", cVec_size(arr1));
   printf("The size after freeing is %d\n", cVec_size(arr2));
 
-  printf("Need to do the sorting now\n ");
+  cVec_push(arr2, 9);
+  cVec_push(arr2, 15);
+  cVec_push(arr1, 6);
+  cVec_push(arr1, 2);
+  cVec_push(arr1, 4);
+
+  cVec_sort(arr1, true);
+  cVec_sort(arr2, false);
+
+  printf("Elements after sorting the array : \n");
+  printf("First array elements are ");
+  for (int i = 0; i < cVec_size(arr1); i++) {
+    printf("%d ", cVec_get(arr1, i));
+  }
+  printf("\n");
+  printf("Second array elements are ");
+
+  for (int j = 0; j < cVec_size(arr2); j++) {
+    printf("%d ", cVec_get(arr2, j));
+  }
+
+  printf("\n");
 
   return 0;
 }
