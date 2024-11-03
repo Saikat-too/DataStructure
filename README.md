@@ -36,3 +36,69 @@ git clone https://github.com/Saikat-too/DataStructure.git || git@github.com:Saik
 
 cd DataStructure
 ```
+## Usage
+
+### Array/Vector
+Create A Dynamic Array 
+```
+cVector *arr1 = cVec(10) 
+```
+Create A Dynamic Array with value initialization 
+
+```
+cVector *arr2 = cVec_val(10 , 3);
+
+```
+Add Elements
+
+```
+cVec.push(10);
+```
+Access Elements
+```
+int value = cVec_get(arr1 , index_number);
+```
+Remove The Last Elements
+```
+cVec_pop(arr1);
+```
+Clear The Vector 
+```
+cVec_free(arr1);
+```
+Sort the Vector Array in Ascending
+```
+cVec_sort(arr1 , true)
+```
+Sort the Vector Array in Descending 
+```
+cVec_sort(arr2 , false)
+```
+Lower Bound for Sorted Arrays
+```
+int lb_index = lower_bound(arr1 , value)
+```
+Upper Bound for Sorted Arrays 
+```
+int up_index = upper_bound(arr1 , value)
+
+
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
