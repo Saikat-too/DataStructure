@@ -22,4 +22,6 @@ void quicksort(cVector *arr, int low, int high, bool aschending);
 void cVec_sort(cVector *arr, bool ascending);
 int cVec_get(cVector *arr, size_t index);
 int cVec_size(cVector *arr);
+int lower_bound(cVector *arr, int value);
+int upper_bound(cVector *arr, int value);
 #endif

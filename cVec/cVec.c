@@ -119,3 +119,39 @@ void cVec_sort(cVector *arr, bool ascending) {
   int high = arr->size - 1;
   quicksort(arr, low, high, ascending);
 }
+
+// Binary search
+//
+//
+// Lower bound searches the first positon where value is not less than the
+// elements in the array
+
+int lower_bound(cVector *arr, int value) {
+  int low = 0;
+  int high = arr->size;
+
+  while (low < high) {
+    int mid = low + (high - low) / 2;
+    if (arr->data[mid] < value) {
+      low = mid + 1;
+    } else {
+      high = mid;
+    }
+  }
+
+  return low;
+}
+
+int upper_bound(cVector *arr, int value) {
+  int low = 0;
+  int high = arr->size;
+  while (low < high) {
+    int mid = low + (high - low) / 2;
+    if (arr->data[mid] <= value) {
+      low = mid + 1;
+    } else {
+      high = mid;
+    }
+  }
+  return low;
+}

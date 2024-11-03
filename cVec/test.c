@@ -60,5 +60,15 @@ int main(int argc, char *argv[]) {
 
   printf("\n");
 
+  printf("The result of binary search : ->>> \n");
+
+  int low = lower_bound(arr1, 4);
+  int high = upper_bound(arr1, 4);
+
+  printf("The result of lower bound binary search is : %d \n",
+         cVec_get(arr1, low));
+  printf("The result of upper bound binary search is : %d \n",
+         cVec_get(arr1, high));
+
   return 0;
 }
