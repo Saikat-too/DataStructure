@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up C environment
-        uses: actions/setup-c@v1
+      - name: Install Clang
+        run: sudo apt-get update && sudo apt-get install -y clang
 
       - name: Build
         run: make
 
       - name: Run Tests
-        run: ./test_cVec
+        run: ./test_cVec 
