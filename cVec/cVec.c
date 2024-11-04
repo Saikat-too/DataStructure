@@ -55,13 +55,14 @@ void cVec_free(cVector *arr) {
 
 // Deleting last element of vector
 
-void cVec_pop(cVector *arr) {
+int cVec_pop(cVector *arr) {
   if (arr->size == 0) {
     printf("There is no element in this vector ");
-    return;
+    return -1;
   }
-
+  int ind = arr->size;
   arr->size = arr->size - 1;
+  return arr->data[ind];
 }
 
 // Element of an index of the vector

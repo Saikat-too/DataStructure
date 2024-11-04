@@ -15,7 +15,7 @@ cVector *cVec_val(size_t initial_capacity, int value);
 
 void cVec_free(cVector *arr);
 void cVec_push(cVector *arr, int value);
-void cVec_pop(cVector *arr);
+int cVec_pop(cVector *arr);
 void swap(int *a, int *b);
 int partition(cVector *arr, int low, int high, bool ascending);
 void quicksort(cVector *arr, int low, int high, bool aschending);
