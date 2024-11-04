@@ -1,29 +1,24 @@
-name: CI for cVec
+name: C CI
 
 on:
   push:
-   branches:
-     - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-     - main
+    branches: [ "main" ]
 
 jobs:
   build-and-test:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Checkout repository
-       uses: actions/checkout@v3
+    runs-on: ubuntu-latest
 
-     - name: Set up GCC
-       uses: sudo apt update && sudo apt install -y build-essenial
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-     - name : Build the cVec Library
-       run: |
-         make
+      - name: Set up C environment
+        uses: actions/setup-c@v1
 
-     - name: Run Unit Tests
-       run: |
-         gcc -o test_cVec test_cVec.c -L. -lcVec && ./test_cVec
-    
-    
+      - name: Build
+        run: make
+
+      - name: Run Tests
+        run: ./test_cVec
