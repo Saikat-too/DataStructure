@@ -60,7 +60,7 @@ int cVec_pop(cVector *arr) {
     printf("There is no element in this vector ");
     return -1;
   }
-  int ind = arr->size;
+  size_t ind = arr->size;
   arr->size = arr->size - 1;
   return arr->data[ind];
 }
