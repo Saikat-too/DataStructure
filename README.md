@@ -8,9 +8,8 @@ This repository contains implementations of common data structures in C programm
 2.[List of Data Structures](#list-of-data-structures)
 3.[Installation](#installation)
 4.[Usage](#usage)
-5.[Time Complexity](#time-complexity)
-6.[Contributing](#contributing)
-7.[License](#license)
+5.[Contributing](#contributing)
+6.[License](#license)
  
 ## Overview
 
