@@ -37,7 +37,7 @@ cVector *cVec_val(size_t initial_capacity, int initial_value) {
 // Push elements in the vector
 void cVec_push(cVector *arr, int value) {
   if (arr->size >= arr->capacity) {
-    printf("The size has been exceeded");
+    fprintf(stderr, "Error : The size has been exceeded");
     return;
   }
   arr->data[arr->size] = value;
@@ -56,20 +56,21 @@ void cVec_free(cVector *arr) {
 // Deleting last element of vector
 
 int cVec_pop(cVector *arr) {
-  if (arr->size == 0) {
-    printf("There is no element in this vector ");
-    return -1;
+  if (arr->size <= 0) {
+    fprintf(stderr, "Error : Attempt to pop from an empty vector\n");
+    abort();
   }
-  size_t ind = arr->size;
-  arr->size = arr->size - 1;
-  return arr->data[ind];
+
+  int data = arr->data[arr->size - 1];
+  arr->size--;
+  return data;
 }
 
 // Element of an index of the vector
 int cVec_get(cVector *arr, size_t index) {
   if (arr->size <= index) {
-    printf("The index is higher than size of the array ");
-    return CVEC_OUT_OF_BOUNDS;
+    fprintf(stderr, "Error : The index  is out of bounds\n ");
+    abort();
   }
 
   return arr->data[index];

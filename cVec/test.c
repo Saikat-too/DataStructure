@@ -22,18 +22,18 @@ int main(int argc, char *argv[]) {
 
   printf("\n");
 
-  cVec_pop(arr1);
-  cVec_pop(arr2);
+  int pop1 = cVec_pop(arr1);
+  int pop2 = cVec_pop(arr2);
+
+  printf("The popped elements are : %d %d \n", pop1, pop2);
 
   printf("The size of array1 is %d \n", cVec_size(arr1));
   printf("The size of array2 is %d \n", cVec_size(arr2));
 
   printf("The last element is %d \n", cVec_get(arr1, 2));
   printf("The last element is %d \n", cVec_get(arr2, 9));
-
   cVec_free(arr1);
   cVec_free(arr2);
-
   printf("The size after freeing is %d\n", cVec_size(arr1));
   printf("The size after freeing is %d\n", cVec_size(arr2));
 
